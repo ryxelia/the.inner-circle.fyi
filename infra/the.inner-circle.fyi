@@ -22,14 +22,14 @@ server {
         access_log off;
         tcp_nodelay off;
         sendfile on;
-        add_header Access-Control-Allow-Origin "*" always;
+        add_header 'Access-Control-Allow-Origin' '';
         location ~* \.(css|js|woff2?|ttf|otf)$ {
             add_header Cache-Control "public, max-age=31536000, immutable";
-            add_header Access-Control-Allow-Origin "*" always;
+            add_header 'Access-Control-Allow-Origin' '';
         }
         location ~* \.(avif|png|jpe?g|gif|svg|webp|json)$ {
             add_header Cache-Control "public, max-age=86400";
-            add_header Access-Control-Allow-Origin "*" always;
+            add_header 'Access-Control-Allow-Origin' '';
         }
     }
 
