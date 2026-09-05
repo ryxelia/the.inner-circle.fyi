@@ -115,21 +115,11 @@ class TemplateServer(Jinja2Templates):
             shutil.copyfile(f"{fonts_dir}/{file}", f"_served/static/fonts/{file}")
             self._served_files["public/fonts/" + file] = f"static/fonts/{file}"
 
-    def _serve_icons(self) -> None:
-        icons_dir = "src/ticfyi/public/icons"
-        os.makedirs("_served/static/icons", exist_ok=True)
-        for file in os.listdir(icons_dir):
-            if not file.endswith((".ico", ".png", ".svg")):
-                continue
-            shutil.copyfile(f"{icons_dir}/{file}", f"_served/static/icons/{file}")
-            self._served_files["public/icons/" + file] = f"static/icons/{file}"
-
     def load(self) -> None:
         self._serve_images()
         self._serve_css()
         self._serve_js()
         self._serve_misc()
-        self._serve_icons()
 
     def _get_file(self, file_path: str) -> str:
         path = self._served_files.get(file_path, "")
