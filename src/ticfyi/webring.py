@@ -11,6 +11,7 @@ __all__: tuple[str, ...] = (
 WEB_RING_MEMBERS: tuple[str, ...] = (
     "the.inner-circle.fyi",
     "abigail.sh",
+    "lvh.lol", 
     "pre1ude.dev",
     "byeoon.dev",
     "azee.sh",
