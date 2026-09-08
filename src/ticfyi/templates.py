@@ -47,32 +47,10 @@ class TemplateServer(Jinja2Templates):
                 continue
             out_dir = os.path.normpath(os.path.join("_served/static/images", rel_dir))
             os.makedirs(out_dir, exist_ok=True)
-
             for file in filenames:
-                file_name, file_ext = os.path.splitext(file)
-                if file_ext not in (".png", ".jpg", ".jpeg", ".gif"):
-                    continue
-
-                avif_file_path = f"static/images/{rel_dir}/{file_name}.avif"
-                if Path(f"_served/{avif_file_path}").exists():
-                    self._served_files[os.path.normpath(f"public/images/{rel_dir}/{file}")] = avif_file_path
-                    continue
-
-                image = Image.open(os.path.join(dirpath, file))
-                avif_path = os.path.join(out_dir, f"{file_name}.avif")
-                image.save(avif_path, optimize=True, quality=50, format="AVIF", save_all=True)
-
-                avif_image = Image.open(avif_path)
+                shutil.copyfile(f"{dirpath}/{file}", f"_served/static/images/{rel_dir}/{file}")
                 pub_key = os.path.normpath(f"public/images/{rel_dir}/{file}")
-
-                if avif_image.size > image.size:
-                    # if the AVIF image is larger than the original, we will serve the original instead.
-                    os.remove(avif_path)
-                    image.save(os.path.join(out_dir, file), optimize=True, quality=50)
-                    self._served_files[pub_key] = os.path.normpath(f"static/images/{rel_dir}/{file}")
-
-                else:
-                    self._served_files[pub_key] = os.path.normpath(avif_file_path)
+                self._served_files[pub_key] = os.path.normpath(f"static/images/{rel_dir}/{file}")
 
     def _serve_css(self) -> None:
         css_dir = "src/ticfyi/public/css"
