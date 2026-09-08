@@ -12,7 +12,7 @@ from PIL import Image
 from rcssmin import cssmin
 from rjsmin import jsmin
 
-from ticfyi.webring import WEB_RING_MEMBERS
+from ticfyi.webring import get_web_ring_members
 
 
 __all__: tuple[str, ...] = (
@@ -137,7 +137,7 @@ class TemplateServer(Jinja2Templates):
             "get_file": self._get_file,
             "get_file_type": self._get_file_type,
             "most_recent_commit_hash": self._most_recent_commit_hash,
-            "WEB_RING_MEMBERS": WEB_RING_MEMBERS,
+            "WEB_RING_MEMBERS": get_web_ring_members(),
         })
         template_content = template.render(context)
         return Response(
