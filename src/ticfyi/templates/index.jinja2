@@ -15,8 +15,58 @@
         <div class="page">
             <div class="content">
                 <h1>the inner circle</h1>
-                <div id="innerCircleWebRing"></div>
-
+                <div id="innerCircleWebRing">
+                    <style>
+                        #innerCircleWebRing a {text-decoration: none;}
+                        #innerCircleWebRingNavHome {transition: transform 0.4s; vertical-align: middle;}
+                        #innerCircleWebRingNavHome:hover {transform: scale(1.05) translateY(-2px);}
+                        #innerCircleWebRingNavBackwards {rotate: 90deg; color: #ffa9fc;}
+                        #innerCircleWebRingNavForwards {rotate: -90deg; color: #a8eefe;}
+                        #innerCircleWebRingNavBackwards, #innerCircleWebRingNavForwards {transition: transform 0.4s; display: inline-block; aspect-ratio: 1; vertical-align: middle; transform: scale(0.8);}
+                        #innerCircleWebRingNavBackwards:hover, #innerCircleWebRingNavForwards:hover {transform: scale(0.84) translateY(10px);}
+                    </style>
+                    <a href="https://the.inner-circle.fyi/ring/back?from_url=${from}"
+                        rel="noopener noreferrer"
+                        id="innerCircleWebRingNavBackwards"
+                    >
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" height="100%">
+                            <path
+                                d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5
+                                2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09
+                                C13.09 3.81 14.76 3 16.5 3
+                                19.58 3 22 5.42 22 8.5
+                                c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+                                fill="currentColor"
+                            />
+                        </svg>
+                    </a>
+                    <a href="https://the.inner-circle.fyi/" target="_blank" rel="noopener noreferrer">
+                        <img
+                            src="https://the.inner-circle.fyi/static/images/inner-button.avif"
+                            width="88"
+                            height="31"
+                            loading="lazy"
+                            style="image-rendering:pixelated"
+                            alt="the.inner-circle.fyi 88x31px web button"
+                            id="innerCircleWebRingNavHome"
+                        >
+                    </a>
+                    <a href="https://the.inner-circle.fyi/ring/next?from_url=${from}" rel="noopener noreferrer"
+                        aria-label="Navigate to the next site in the inner circle web ring"
+                        id="innerCircleWebRingNavForwards"
+                    >
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" height="100%">
+                            <path
+                                d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5
+                                2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09
+                                C13.09 3.81 14.76 3 16.5 3
+                                19.58 3 22 5.42 22 8.5
+                                c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+                                fill="currentColor"
+                            />
+                        </svg>
+                    </a>
+                </div>
                 <br>
                 <br>
                 <hr>
@@ -48,6 +98,5 @@
             target="_blank"
             rel="noopener noreferrer"
         >join the server</a>
-        <script src="{{ get_file('public/js/ring.js') }}"></script>
     </body>
 </html>
