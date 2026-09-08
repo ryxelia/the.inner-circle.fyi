@@ -1,8 +1,6 @@
 # the.inner-circle.fyi
 
-this is the git repo for the [inner-circle.fyi](https://inner-circle.fyi) domain.
-
-this uses some weird hacky stuff stolen from [ijsbol/abigail.sh](https://github.com/ijsbol/abigail.sh).
+this is the git repo for the [the.inner-circle.fyi](https://the.inner-circle.fyi), the inner circle communities webring!.
 
 ## joining the webring
 
