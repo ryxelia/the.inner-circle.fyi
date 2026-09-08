@@ -8,4 +8,5 @@ WEB_RING_MEMBERS: tuple[str, ...] = (
     "abigail.sh",
     "pre1ude.dev",
     "azee.sh",
+    "lumap.xyz"
 )
